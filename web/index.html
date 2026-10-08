@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#173f4b" />
+    <title>金融学习工作台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#main" class="brand">知 · 金融学习工作台</a><span>本地运行 · 自编公开样例</span>
+    </header>
+    <main id="main">
+      <div class="heading">
+        <p class="eyebrow">FINANCE STUDY WORKBENCH</p>
+        <h1>先回想，再揭示。<br />把每一次判断留在记录里。</h1>
+        <p>金融英语与小题练习，按剩余词量安排每天任务。</p>
+      </div>
+      <nav aria-label="工作区">
+        <button data-page="plan" aria-current="page">今日计划</button
+        ><button data-page="study">开始学习</button><button data-page="records">记录与备份</button>
+      </nav>
+      <div id="message" role="status" hidden></div>
+      <fieldset id="workspace">
+        <section id="plan-page">
+          <div id="plan-summary" class="metrics"></div>
+          <div class="panel">
+            <h2>今天先做多少？</h2>
+            <p id="plan-details"></p>
+            <div class="actions">
+              <button id="start-new" class="primary">按计划开始一组</button
+              ><button id="start-review">只复习到期内容</button
+              ><button id="continue" hidden>继续当前组</button>
+            </div>
+            <p id="next-review" class="muted"></p>
+          </div>
+          <details class="panel">
+            <summary>设置学习计划</summary>
+            <form id="settings-form">
+              <div class="form-grid">
+                <label>开始日期<input id="start-date" type="date" required /></label
+                ><label>考试／目标日期<input id="exam-date" type="date" required /></label
+                ><label
+                  >考前只复习天数<input
+                    id="stop-days"
+                    type="number"
+                    min="0"
+                    max="30"
+                    required /></label
+                ><label
+                  >每组最多几项<input id="group-size" type="number" min="1" max="80" required
+                /></label>
+              </div>
+              <button type="submit">保存设置</button>
+            </form>
+            <p class="muted">
+              每日新词按剩余首轮数量倒排，不按分钟计算。修改设置不清空记忆与判断记录；当前组完成后可调整。
+            </p>
+          </details>
+          <aside class="method">
+            <h3>复习如何接续</h3>
+            <p>
+              错词至少间隔10分钟，跨组累计记对第1至4次后分别等1、3、7、14天；第5次后由 FSRS
+              继续安排。再错会重新等待，已有正确次数保留；通过后再错则重开。
+            </p>
+            <p>
+              首轮进度表示至少判断过一次，不能当成掌握率。当前10项是原创示例，不代表完整考试课程。
+            </p>
+          </aside>
+        </section>
+        <section id="study-page" hidden>
+          <div class="study-top">
+            <span id="group-progress"></span><button id="pause">暂停并返回计划</button>
+          </div>
+          <article id="card" tabindex="-1">
+            <p class="eyebrow" id="card-kind"></p>
+            <h2 id="prompt">先从今日计划开始一组</h2>
+            <div id="options"></div>
+            <div id="answer" class="answer"></div>
+            <p id="study-hint" class="muted"></p>
+          </article>
+          <div class="actions study-actions">
+            <button id="reveal" class="primary">↓ 显示答案</button><button id="wrong">← 记错</button
+            ><button id="correct" class="primary">记对 →</button
+            ><button id="advance" class="primary">下一个词 →</button
+            ><button id="skip">↓ 暂时跳过</button><button id="back-plan">返回今日计划</button>
+          </div>
+          <p id="review-stage" class="muted"></p>
+        </section>
+        <section id="records-page" hidden>
+          <h2>判断与恢复</h2>
+          <p>
+            判断提交后保存到本项目的
+            SQLite。揭示与翻页不算答对；恢复旧进度会追加恢复事件，已有原始判断保留。
+          </p>
+          <div class="actions">
+            <button id="backup" class="primary">导出完整备份</button
+            ><button id="events">导出原始事件 JSON</button
+            ><label class="file-button"
+              >选择备份<input id="restore-file" type="file" accept=".json,application/json"
+            /></label>
+          </div>
+          <div id="restore-preview" hidden>
+            <p id="restore-description"></p>
+            <button id="restore-confirm">确认恢复所选备份</button
+            ><button id="restore-cancel">取消</button>
+          </div>
+          <p class="muted">
+            恢复会替换当前计划、记忆状态和学习组；原始事件按ID合并。仅支持本项目相同词库的备份。先导出当前备份，再恢复较早进度。
+          </p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>时间</th>
+                  <th>词项ID</th>
+                  <th>判断</th>
+                  <th>阶段</th>
+                </tr>
+              </thead>
+              <tbody id="record-rows"></tbody>
+            </table>
+          </div>
+          <small>显示当前进度中最近100次判断；导出的原始事件还包括恢复前保留的记录。</small>
+        </section>
+      </fieldset>
+      <footer>
+        Finance Study Workbench · 原创示例 MIT · FSRS 调度 MIT<br />单人本地工具；同一服务的浏览器共用记录。没有模型调用。
+      </footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

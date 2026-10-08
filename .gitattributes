@@ -1,0 +1,3 @@
+# Preserve upstream bytes, including the two bundled files' existing trailing spaces.
+vendor/fsrs.mjs whitespace=-blank-at-eol
+vendor/fsrs.d.mts whitespace=-blank-at-eol
