@@ -1,0 +1,89 @@
+{
+  "id": "original-finance-demo-v1",
+  "title": "金融英语与计算 · 自编示例",
+  "license": "MIT",
+  "cards": [
+    {
+      "id": "cash-flow",
+      "kind": "term",
+      "front": "cash flow",
+      "back": "现金流",
+      "explanation": "Cash flow describes money entering or leaving an entity during a period.\n一段期间内的现金流入与流出，不等于利润。"
+    },
+    {
+      "id": "principal",
+      "kind": "term",
+      "front": "principal",
+      "back": "本金",
+      "explanation": "The amount originally borrowed or invested.\n借入或投入的基础金额；偿还本金与支付利息应分别记录。"
+    },
+    {
+      "id": "liquidity",
+      "kind": "term",
+      "front": "liquidity",
+      "back": "流动性",
+      "explanation": "The ability to obtain cash when needed without a large loss of value.\n流动性强调及时取得现金的能力；账面财富不一定可立即支用。"
+    },
+    {
+      "id": "dividend",
+      "kind": "term",
+      "front": "dividend",
+      "back": "股利／分红",
+      "explanation": "A distribution by a company to its shareholders.\n公司向股东分配的款项；企业账上的现金尚不等于股东家庭现金。"
+    },
+    {
+      "id": "net-worth",
+      "kind": "term",
+      "front": "net worth",
+      "back": "净资产",
+      "explanation": "Assets less liabilities at a point in time.\n某一时点的资产减去负债，是存量而不是期间收入。"
+    },
+    {
+      "id": "opportunity-cost",
+      "kind": "term",
+      "front": "opportunity cost",
+      "back": "机会成本",
+      "explanation": "The value of the best alternative given up when choosing an action.\n做出选择时放弃的最佳替代方案的价值。"
+    },
+    {
+      "id": "diversification",
+      "kind": "term",
+      "front": "diversification",
+      "back": "分散化",
+      "explanation": "Spreading exposure across different sources of risk.\n分散风险来源，不代表所有损失或共同市场风险都能消除。"
+    },
+    {
+      "id": "real-return",
+      "kind": "term",
+      "front": "real return",
+      "back": "实际收益率",
+      "explanation": "A return adjusted for the change in purchasing power.\n扣除物价变化影响后的收益率，精确关系为(1+名义收益率)/(1+通胀率)-1。"
+    },
+    {
+      "id": "simple-interest",
+      "kind": "question",
+      "front": "A loan has principal 1,000 and annual simple interest of 4%. What is one year's interest?",
+      "back": "40",
+      "explanation": "1,000 × 4% = 40。题目使用单利、完整一年，不考虑手续费。",
+      "options": [
+        { "id": "A", "label": "4" },
+        { "id": "B", "label": "40" },
+        { "id": "C", "label": "400" }
+      ],
+      "answerOption": "B"
+    },
+    {
+      "id": "balance-example",
+      "kind": "question",
+      "front": "A household has assets of 120 and liabilities of 45. What is its net worth?",
+      "back": "75",
+      "explanation": "120 − 45 = 75。这是净资产，不代表全部可用现金。",
+      "options": [
+        { "id": "A", "label": "45" },
+        { "id": "B", "label": "120" },
+        { "id": "C", "label": "75" }
+      ],
+      "answerOption": "C"
+    }
+  ]
+}
